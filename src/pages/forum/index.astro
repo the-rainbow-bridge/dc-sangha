@@ -1,0 +1,17 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+import TopLayout from "@layouts/TopLayout.astro";
+import BottomLayout from "@layouts/BottomLayout.astro";
+import { FORUM } from "@consts";
+---
+
+<PageLayout title={FORUM.TITLE} description={FORUM.DESCRIPTION}>
+  <TopLayout>
+    <div class="animate page-heading">
+      {FORUM.TITLE}
+    </div>
+  </TopLayout>
+  <BottomLayout>
+    <div class="animate">coming soon!</div>
+  </BottomLayout>
+</PageLayout>

@@ -1,0 +1,35 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import PageLayout from "@layouts/PageLayout.astro";
+import TopLayout from "@layouts/TopLayout.astro";
+import BottomLayout from "@layouts/BottomLayout.astro";
+import ArticleTopLayout from "@layouts/ArticleTopLayout.astro";
+import ArticleBottomLayout from "@layouts/ArticleBottomLayout.astro";
+
+// Create the static blog pages
+export async function getStaticPaths() {
+  const resources = await getCollection("resources");
+  return resources.map((resource) => ({
+    params: { slug: resource.slug },
+    props: resource,
+  }));
+}
+
+// Get the requested resource
+type Props = CollectionEntry<"resources">;
+const resource = Astro.props;
+const { title, summary } = resource.data;
+---
+
+<PageLayout title={title} description={summary}>
+  <TopLayout>
+    <div class="animate">
+      <ArticleTopLayout entry={resource} />
+    </div>
+  </TopLayout>
+  <BottomLayout>
+    <div class="animate">
+      <ArticleBottomLayout entry={resource} />
+    </div>
+  </BottomLayout>
+</PageLayout>
