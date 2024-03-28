@@ -88,7 +88,7 @@ export default function Blog({ data, tags, types }: Props) {
             </For>
           </ul>
 
-          <div class="text-sm font-semibold uppercase mb-2 text-black dark:text-white">
+          <div class="text-sm font-semibold uppercase my-2 text-black dark:text-white">
             Filter by tag
           </div>
           <ul class="flex flex-wrap sm:flex-col gap-1.5">
