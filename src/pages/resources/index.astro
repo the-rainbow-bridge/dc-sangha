@@ -5,6 +5,7 @@ import TopLayout from "@layouts/TopLayout.astro";
 import BottomLayout from "@layouts/BottomLayout.astro";
 import Resources from "@components/Resources";
 import { RESOURCES } from "@consts";
+import { cn } from "@lib/utils";
 
 const resources = (await getCollection("resources"))
   .filter((record) => !record.data.draft)
@@ -24,15 +25,32 @@ const tags = [...new Set(resources.flatMap((record) => record.data.tags))].sort(
     <div class="animate page-heading">
       {RESOURCES.TITLE}
     </div>
-  </TopLayout>
-  <BottomLayout>
-    <div class="animate">
-      <Resources
-        client:load
-        tags={tags}
-        data={resources}
-        types={resourceTypes}
-      />
+    <div class="animate w-1/2 my-4">
+      <p>
+        This is a collection of resources that we have found useful. If you have
+        a resource that you would like to add to the community:
+      </p>
+      <button
+        class={cn(
+          "h-8 rounded-full px-3 text-current mt-4",
+          "flex items-center justify-center",
+          "animate transition-colors duration-300 ease-in-out",
+          "bg-black dark:bg-white text-white dark:text-black",
+          "hover:bg-black/5 dark:hover:bg-white/20 hover:text-black dark:hover:text-white"
+        )}
+      >
+        <a href="/resources/new">Add a new resource</a>
+      </button>
     </div>
-  </BottomLayout>
+    <BottomLayout>
+      <div class="animate">
+        <Resources
+          client:load
+          tags={tags}
+          data={resources}
+          types={resourceTypes}
+        />
+      </div>
+    </BottomLayout>
+  </TopLayout>
 </PageLayout>

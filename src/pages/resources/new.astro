@@ -1,0 +1,12 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+import TopLayout from "@layouts/TopLayout.astro";
+
+import ResourceForm from "@components/ResourceForm";
+---
+
+<PageLayout>
+  <TopLayout>
+    <ResourceForm client:load />
+  </TopLayout>
+</PageLayout>
