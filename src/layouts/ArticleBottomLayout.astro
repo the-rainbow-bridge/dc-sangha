@@ -1,19 +1,19 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
+import { type CollectionEntry, getCollection } from "astro:content"
 
 type Props = {
   entry: CollectionEntry<"resources">;
 };
 
 // Get the requested entry
-const { entry } = Astro.props;
-const { collection } = entry;
-const { Content } = await entry.render();
+const { entry } = Astro.props
+const { collection } = entry
+const { Content } = await entry.render()
 
 // Get the next and prev entries (modulo to wrap index)
-const items = await getCollection(collection);
-const index = items.findIndex((x) => x.slug === entry.slug);
-const prev = items[(index - 1 + items.length) % items.length];
+const items = await getCollection(collection)
+const index = items.findIndex((x) => x.slug === entry.slug)
+const prev = items[(index - 1 + items.length) % items.length]
 const next = items[(index + 1) % items.length];
 ---
 

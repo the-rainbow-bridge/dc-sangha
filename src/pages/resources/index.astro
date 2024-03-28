@@ -10,6 +10,10 @@ const resources = (await getCollection("resources"))
   .filter((record) => !record.data.draft)
   .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 
+const resourceTypes = [
+  ...new Set(resources.flatMap((record) => record.data.type)),
+].sort((a, b) => a.localeCompare(b));
+
 const tags = [...new Set(resources.flatMap((record) => record.data.tags))].sort(
   (a, b) => a.localeCompare(b)
 );
@@ -23,7 +27,12 @@ const tags = [...new Set(resources.flatMap((record) => record.data.tags))].sort(
   </TopLayout>
   <BottomLayout>
     <div class="animate">
-      <Resources client:load tags={tags} data={resources} />
+      <Resources
+        client:load
+        tags={tags}
+        data={resources}
+        types={resourceTypes}
+      />
     </div>
   </BottomLayout>
 </PageLayout>
