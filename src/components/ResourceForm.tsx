@@ -13,16 +13,33 @@ export default function ResourceForm() {
         email: "",
     })
 
+    const [errors, setErrors] = createStore({
+        message: "", 
+    })
+
     async function handleSubmitForm(e: Event) {
         e.preventDefault()
-        console.log(fields)
-        // send form data via email
-        navigate("/resources/submitted")
+        
+        try {
+            await fetch("https://formspree.io/f/xgegnzpr", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(fields),
+            })
+
+            navigate("/resources/submitted")
+        } catch (error) {
+            console.error(error)
+            setErrors("message", "An error occurred. Please try again.")
+        }
     }
     
     return (
         <form class="animate" onSubmit={handleSubmitForm}>
             <h1 class="animate text-lg md:text-xl lg:text-2xl font-semibold opacity-75 mb-2">Submit a new resource to the community</h1>
+            <p class="text-xs text-red-600">{errors.message}</p>
             <div class="field-block group p-4 gap-3 flex items-center border rounded-lg hover:bg-black/5 hover:dark:bg-white/10 border-black/15 dark:border-white/20 transition-colors duration-300 ease-in-out mb-2">
                 <label class="w-1/4" for="type">Type of resource*</label>
                 <select
