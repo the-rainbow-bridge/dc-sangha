@@ -2,7 +2,8 @@
 import { getCollection } from "astro:content";
 import PageLayout from "@layouts/PageLayout.astro";
 import ArrowCard from "@components/ArrowCard";
-import { SITE, SOCIALS } from "@consts";
+import ContactForm from "@components/ContactForm";
+import { SITE } from "@consts";
 
 const resources = (await getCollection("resources"))
   .filter((record) => !record.data.draft)
@@ -49,7 +50,7 @@ const resources = (await getCollection("resources"))
         </div>
       </div>
     </div>
-    <div class="animate h-full w-full flex items-center justify-center">
+    <div class="animate h-full w-full flex items-center justify-center mt-36">
       <div class="relative w-full h-full flex items-center justify-center">
         <div class="p-5 text-center">
           <p
@@ -85,7 +86,7 @@ const resources = (await getCollection("resources"))
           <img
             src="/logo.png"
             alt="Rainbow Sangha Logo"
-            class="w-1/4 animate absolute mx-auto"
+            class="w-1/2 animate mx-auto relative"
           />
         </div>
       </div>
@@ -124,8 +125,8 @@ const resources = (await getCollection("resources"))
             changes, meeting topics, facilitator selections) are made
             democratically through group voting and discussion. Our meetings are
             currently held over Zoom while we search for a physical meeting
-            space. Please see our calendar [insert link] for meeting times and
-            video call information. Meetings are open to the public, with no
+            space. Please see our <a href="/calendar">calendar</a> for meeting times
+            and video call information. Meetings are open to the public, with no
             advance registration required. There are no fees or payment required
             to join the Sangha or attend meetings.
           </p>
@@ -166,33 +167,9 @@ const resources = (await getCollection("resources"))
       <section class="animate">
         <div>
           <p class="font-semibold text-black dark:text-white">
-            Interested in joining us?
+            Questions? Interested in joining us?
           </p>
-          <p>Reach out to us via email or on social media.</p>
-          <div class="grid grid-cols-4 gap-y-2 mt-4 auto-cols-min">
-            {
-              SOCIALS.map((social) => (
-                <>
-                  <div class="col-span-1 flex items-center gap-1">
-                    <span class="whitespace-nowrap truncate">
-                      {social.NAME}
-                    </span>
-                  </div>
-                  <div class="col-span-3 truncate">
-                    <a
-                      href={social.HREF}
-                      target="_blank"
-                      class="w-fit col-span-3 group flex gap-1 items-center underline decoration-[.5px] decoration-black/25 dark:decoration-white/50 hover:decoration-black dark:hover:decoration-white text-black dark:text-white underline-offset-2 blend"
-                    >
-                      <span class="text-black/75 dark:text-white/75 group-hover:text-black group-hover:dark:text-white blend">
-                        {social.TEXT}
-                      </span>
-                    </a>
-                  </div>
-                </>
-              ))
-            }
-          </div>
+          <ContactForm client:load />
         </div>
       </section>
     </div>
