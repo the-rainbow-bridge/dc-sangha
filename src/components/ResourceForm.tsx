@@ -53,7 +53,6 @@ export default function ResourceForm() {
                 <label class="w-1/4" for="type">Type of resource*</label>
                 <select
                 name="type"
-                required
                 onInput={(e) => setFields("type", e.target.value)}
                 class="w-full px-2.5 py-1.5 pl-10 rounded outline-none text-black dark:text-white bg-black/5 dark:bg-white/15 border border-black/10 dark:border-white/20 focus:border-black focus:dark:border-white"
                 >
@@ -96,6 +95,7 @@ export default function ResourceForm() {
                 <input
                 type="text"
                 name="link"
+                required
                 placeholder="A link to the resource"
                 onInput={(e) => setFields("link", e.target.value)}
                 aria-label="Link to the resource"
