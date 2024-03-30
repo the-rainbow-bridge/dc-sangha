@@ -3,8 +3,17 @@ import { cn } from "../lib/utils"
 import { navigate } from "astro:transitions/client"
 
 export default function ResourceForm() {
+
+    interface FormData {
+        type: string
+        title: string
+        summary: string
+        link: string
+        details: string
+        email: string
+    }
     
-    const [fields, setFields] = createStore({
+    const [fields, setFields] = createStore<FormData>({
         type: "",
         title: "",
         summary: "",
@@ -67,6 +76,7 @@ export default function ResourceForm() {
                 required
                 minlength="8"
                 onInput={(e) => setFields("title", e.target.value)}
+                aria-label="Title of the resource"
                 class="w-full px-2.5 py-1.5 pl-10 rounded outline-none text-black dark:text-white bg-black/5 dark:bg-white/15 border border-black/10 dark:border-white/20 focus:border-black focus:dark:border-white"
                 />
             </div>
@@ -77,6 +87,7 @@ export default function ResourceForm() {
                 name="summary"
                 placeholder="A brief summary of the resource"
                 onInput={(e) => setFields("summary", e.target.value)}
+                aria-label="Summary of the resource"
                 class="w-full px-2.5 py-1.5 pl-10 rounded outline-none text-black dark:text-white bg-black/5 dark:bg-white/15 border border-black/10 dark:border-white/20 focus:border-black focus:dark:border-white"
                 />
             </div>
@@ -87,6 +98,7 @@ export default function ResourceForm() {
                 name="link"
                 placeholder="A link to the resource"
                 onInput={(e) => setFields("link", e.target.value)}
+                aria-label="Link to the resource"
                 class="w-full px-2.5 py-1.5 pl-10 rounded outline-none text-black dark:text-white bg-black/5 dark:bg-white/15 border border-black/10 dark:border-white/20 focus:border-black focus:dark:border-white"
                 />
             </div>
@@ -97,6 +109,7 @@ export default function ResourceForm() {
                 name="details"
                 placeholder="Any relevant details"
                 onInput={(e) => setFields("details", e.target.value)}
+                aria-label="Details of the resource"
                 class="w-full px-2.5 py-1.5 pl-10 rounded outline-none text-black dark:text-white bg-black/5 dark:bg-white/15 border border-black/10 dark:border-white/20 focus:border-black focus:dark:border-white"
                 />
             </div>
@@ -107,6 +120,7 @@ export default function ResourceForm() {
                 type="email"
                 placeholder="Your email"
                 onInput={(e) => setFields("email", e.target.value)}
+                aria-label="Email address"
                 class="w-full px-2.5 py-1.5 pl-10 rounded outline-none text-black dark:text-white bg-black/5 dark:bg-white/15 border border-black/10 dark:border-white/20 focus:border-black focus:dark:border-white"
                 />
             </div>
