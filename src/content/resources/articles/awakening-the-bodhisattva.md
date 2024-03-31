@@ -1,7 +1,7 @@
 ---
-title: Awakening the BodhiSattva
+title: Awakening the Bodhisattva
 type: articles
-summary: a brief summary of the article
+summary: What it means to practice as a Bodhisattva and how we carry the teachings with us in daily life
 pubDate: 2024-03-27
 tags:
   - Practice

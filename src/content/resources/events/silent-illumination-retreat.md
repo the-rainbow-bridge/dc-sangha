@@ -1,14 +1,14 @@
 ---
 title: Silent Illumination Retreat
 type: events
-summary: a brief summary of the retreat
+summary: Meditation retreat by Dharma Heir Rebecca Li covering the practice of “Silent Illumination”, a Chan meditation practice
 pubDate: 2024-03-27
 tags:
   - Retreats
   - Dharma Drum
 ---
 
-## Details
+## Retreat Details
 
 **Date:** May 25, 2024
 
@@ -20,4 +20,4 @@ tags:
 
 **Cost:** $700
 
-> For more information visit the [website](https://dharmadrumretreat.org/all-retreats/416/silent-illumination-retreat/)
+For more information visit the [DDR website](https://dharmadrumretreat.org/all-retreats/416/silent-illumination-retreat/)

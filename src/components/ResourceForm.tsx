@@ -50,7 +50,7 @@ export default function ResourceForm() {
             <h1 class="animate text-lg md:text-xl lg:text-2xl font-semibold opacity-75 mb-2">Submit a new resource to the community</h1>
             <p class="text-xs text-red-600">{errors.message}</p>
             <div class="field-block group p-4 gap-3 flex items-center border rounded-lg hover:bg-black/5 hover:dark:bg-white/10 border-black/15 dark:border-white/20 transition-colors duration-300 ease-in-out mb-2">
-                <label class="w-1/4" for="type">Type of resource*</label>
+                <label class="w-1/4" for="type">Type of resource</label>
                 <select
                 name="type"
                 onInput={(e) => setFields("type", e.target.value)}
@@ -91,7 +91,7 @@ export default function ResourceForm() {
                 />
             </div>
             <div class="field-block group p-4 gap-3 flex items-center border rounded-lg hover:bg-black/5 hover:dark:bg-white/10 border-black/15 dark:border-white/20 transition-colors duration-300 ease-in-out mb-2">
-                <label class="w-1/4" for="link">Link</label>
+                <label class="w-1/4" for="link">Link*</label>
                 <input
                 type="text"
                 name="link"
