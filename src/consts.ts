@@ -35,6 +35,10 @@ export const LINKS: Links = [
     TEXT: "Resources", 
     HREF: "/resources", 
   },
+  {
+    TEXT: "Calendar",
+    HREF: "/calendar",
+  },
   { 
     TEXT: "Forum", 
     HREF: "/forum", 
