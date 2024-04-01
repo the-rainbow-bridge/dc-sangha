@@ -2,7 +2,7 @@ import type { Site, Page, Links, Socials } from "@types"
 
 // Global
 export const SITE: Site = {
-  TITLE: "DC Rainbow Sangha",
+  TITLE: "Rainbow Sangha",
   DESCRIPTION: "Welcome to the Rainbow Sangha.",
   AUTHOR: "The Rainbow Bridge",
 }

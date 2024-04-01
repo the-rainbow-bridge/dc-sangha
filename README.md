@@ -1,6 +1,6 @@
-# DC Rainbow Sangha
+# Rainbow Sangha
 
-A platform to organize information and resources for the DC Rainbow Sangha
+A platform to organize information and resources for the Rainbow Sangha
 
 ## 💻 Commands
 
