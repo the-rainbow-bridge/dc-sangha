@@ -5,7 +5,10 @@ import TopLayout from "@layouts/TopLayout.astro";
 import ResourceForm from "@components/ResourceForm";
 ---
 
-<PageLayout>
+<PageLayout
+  title="New resource"
+  description="form for submitting a new resource"
+>
   <TopLayout>
     <ResourceForm client:load />
   </TopLayout>
